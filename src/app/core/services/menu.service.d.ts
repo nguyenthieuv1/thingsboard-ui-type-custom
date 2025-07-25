@@ -1,0 +1,31 @@
+import { Store } from '@ngrx/store';
+import { AppState } from '../core.state';
+import { HomeSection, MenuSection } from '@core/services/menu.models';
+import { Observable, Subject } from 'rxjs';
+import { Router } from '@angular/router';
+import * as i0 from "@angular/core";
+export declare class MenuService {
+    private store;
+    private router;
+    currentMenuSections: Array<MenuSection>;
+    menuSections$: Subject<Array<MenuSection>>;
+    homeSections$: Subject<Array<HomeSection>>;
+    availableMenuLinks$: Observable<MenuSection[]>;
+    constructor(store: Store<AppState>, router: Router);
+    private buildMenu;
+    private updateOpenedMenuSections;
+    private buildSysAdminMenu;
+    private buildSysAdminHome;
+    private buildTenantAdminMenu;
+    private buildTenantAdminHome;
+    private buildCustomerUserMenu;
+    private buildCustomerUserHome;
+    private allMenuLinks;
+    menuSections(): Observable<Array<MenuSection>>;
+    homeSections(): Observable<Array<HomeSection>>;
+    availableMenuLinks(): Observable<Array<MenuSection>>;
+    menuLinkById(id: string): Observable<MenuSection | undefined>;
+    menuLinksByIds(ids: string[]): Observable<Array<MenuSection>>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MenuService, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<MenuService>;
+}

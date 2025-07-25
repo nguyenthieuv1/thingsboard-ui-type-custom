@@ -1,0 +1,34 @@
+import L from 'leaflet';
+import { MarkerIconInfo, MarkerIconReadyFunction, WidgetMarkersSettings } from './map-models';
+import tinycolor from 'tinycolor2';
+import LeafletMap from './leaflet-map';
+import { FormattedData } from '@shared/models/widget.models';
+export declare class Marker {
+    private map;
+    private location;
+    private settings;
+    private data?;
+    private dataSources?;
+    private onDragendListener?;
+    private editing;
+    leafletMarker: L.Marker;
+    labelOffset: L.LatLngTuple;
+    tooltipOffset: L.LatLngTuple;
+    markerOffset: L.LatLngTuple;
+    tooltip: L.Popup;
+    constructor(map: LeafletMap, location: L.LatLng, settings: Partial<WidgetMarkersSettings>, data?: FormattedData, dataSources?: any, onDragendListener?: any, snappable?: boolean);
+    setDataSources(data: FormattedData, dataSources: FormattedData[]): void;
+    updateMarkerTooltip(data: FormattedData): void;
+    updateMarkerPosition(position: L.LatLng): void;
+    updateMarkerLabel(settings: Partial<WidgetMarkersSettings>): void;
+    updateMarkerColor(color: any): void;
+    updateMarkerIcon(settings: Partial<WidgetMarkersSettings>): void;
+    private createMarkerIcon;
+    createDefaultMarkerIcon(color: tinycolor.Instance, onMarkerIconReady: MarkerIconReadyFunction): void;
+    createColoredMarkerIcon(color: tinycolor.Instance): MarkerIconInfo;
+    createColorIconURI(color: tinycolor.Instance): string;
+    removeMarker(): void;
+    extendBoundsWithMarker(bounds: any): void;
+    getMarkerPosition(): L.LatLng;
+    setMarkerPosition(latLng: any): void;
+}

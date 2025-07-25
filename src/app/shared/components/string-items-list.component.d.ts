@@ -1,0 +1,56 @@
+import { ElementRef, OnInit } from '@angular/core';
+import { AbstractControl, ControlValueAccessor, FormBuilder, FormGroup } from '@angular/forms';
+import { MatChipInputEvent } from '@angular/material/chips';
+import { FloatLabelType, MatFormFieldAppearance, SubscriptSizing } from '@angular/material/form-field';
+import { Observable } from 'rxjs';
+import { MatAutocompleteTrigger } from '@angular/material/autocomplete';
+import * as i0 from "@angular/core";
+export interface StringItemsOption {
+    name: string;
+    value: any;
+}
+export declare class StringItemsListComponent implements ControlValueAccessor, OnInit {
+    private fb;
+    stringItemsForm: FormGroup;
+    filteredValues: Observable<Array<StringItemsOption>>;
+    searchText: string;
+    itemList: StringItemsOption[];
+    private modelValue;
+    readonly separatorKeysCodes: number[];
+    stringItemInput: ElementRef<HTMLInputElement>;
+    autocomplete: MatAutocompleteTrigger;
+    private requiredValue;
+    get required(): boolean;
+    set required(value: boolean);
+    disabled: boolean;
+    label: string;
+    placeholder: string;
+    hint: string;
+    requiredText: string;
+    floatLabel: FloatLabelType;
+    appearance: MatFormFieldAppearance;
+    editable: boolean;
+    subscriptSizing: SubscriptSizing;
+    predefinedValues: StringItemsOption[];
+    get itemsControl(): AbstractControl;
+    get itemControl(): AbstractControl;
+    onTouched: () => void;
+    private propagateChange;
+    private dirty;
+    constructor(fb: FormBuilder);
+    ngOnInit(): void;
+    updateValidators(): void;
+    registerOnChange(fn: any): void;
+    registerOnTouched(fn: any): void;
+    setDisabledState(isDisabled: boolean): void;
+    writeValue(value: Array<string> | null): void;
+    addItem(event: MatChipInputEvent): void;
+    removeItems(item: StringItemsOption): void;
+    onFocus(): void;
+    displayValueFn(values?: StringItemsOption): string | undefined;
+    private add;
+    private fetchValues;
+    private clear;
+    static ɵfac: i0.ɵɵFactoryDeclaration<StringItemsListComponent, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<StringItemsListComponent, "tb-string-items-list", never, { "required": "required"; "disabled": "disabled"; "label": "label"; "placeholder": "placeholder"; "hint": "hint"; "requiredText": "requiredText"; "floatLabel": "floatLabel"; "appearance": "appearance"; "editable": "editable"; "subscriptSizing": "subscriptSizing"; "predefinedValues": "predefinedValues"; }, {}, never, ["[matHintEnd]", "[matSuffix]"], false, never>;
+}
